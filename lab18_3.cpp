@@ -4,7 +4,7 @@
 #include<vector>
 using namespace std;
 
-vector<int> randomVector(int);
+vector<int> randomVector(unsigned int);
 void showVector(vector<int>);
 int dotProduct(vector<int>,vector<int>);
 
@@ -21,4 +21,23 @@ int main(){
 	return 0;
 }
 
-//Write Definition of randomVector() showVector() and dotProduct() here
+vector<int> randomVector(unsigned int N){	
+    vector<int> v;
+    for(unsigned int i = 0; i < N; i++) v.push_back(rand()%10);
+    return v;
+}
+
+void showVector(vector<int> k){
+	cout << "[";
+	for(unsigned int i = 0; i < k.size(); i++){
+		cout << k[i];
+		if(i+1 == k.size()) cout << "]";
+		else cout << " ";
+	}
+}
+
+int dotProduct(vector<int> m,vector<int> n){
+	int sum = 0;
+	for(unsigned int i = 0; i < m.size(); i++) sum += m[i]*n[i];	
+	return sum;
+}
